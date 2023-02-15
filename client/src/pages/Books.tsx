@@ -27,7 +27,6 @@ const Books: React.FC = () => {
   // get userid of current user
   const currentUserId: number | null | undefined = Number(useUserId());
 
-  console.log(currentUserId)
   // get all books from db for user
   const allBooks: UseQueryResult<any, unknown> = useAllBooksInDb();
 

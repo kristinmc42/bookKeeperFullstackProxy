@@ -23,7 +23,6 @@ export const getAllBooks = async (
   // check authenticated
   const token: string | null = req.cookies.access_token;
 
-  console.log(token)
   if (!token) return res.status(401).json("Not authenticated!");
 
   try {

@@ -6,6 +6,6 @@ export const getUserId = async (req: Request, res: Response) => {
     console.error(err.stack);
     return res.status(500).json("User not in database");
   });
-  console.log(userId[0]);
+  
   return userId[0];
 };
