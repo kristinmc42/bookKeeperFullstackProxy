@@ -12,17 +12,16 @@ export default function useBookInDb(
   initialBookData: DbBookInfo | undefined
 ): UseQueryResult<any, unknown> {
   const getBookByBookId = async () => {
-    return axios
-
-    .get(`books/${bookId}`)
+    return (
+      axios.get(`books/${bookId}`)
       // .get(`https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`)
       .then((res) => {
         return res.data;
-      });
+      }))
   };
 
   return useQuery(["book", bookId], getBookByBookId, {
     enabled: !!bookId,
-    initialData: initialBookData ?initialBookData :undefined
+    initialData: initialBookData ? initialBookData : undefined,
   });
 }

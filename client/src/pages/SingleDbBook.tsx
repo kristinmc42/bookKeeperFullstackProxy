@@ -1,4 +1,5 @@
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate, useLocation } from "react-router-dom";

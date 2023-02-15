@@ -92,6 +92,9 @@ const StyledForm = styled.form`
     @media ${device.tablet}{
       align-self: flex-end;
     }
+    @media ${device.tablet}{
+      align-self: flex-end;
+    }
   }
 
   @media ${device.tablet} {

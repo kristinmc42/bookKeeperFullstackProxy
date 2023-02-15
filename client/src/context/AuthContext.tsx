@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { createContext, ReactNode, useEffect, useState } from "react";
+import axios from "axios";
 
 // interfaces
 import { ContextState, UserObj } from "../types";
@@ -16,7 +16,6 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     JSON.parse(localStorage.getItem("key") as string) || null
   );
 
-  // axios.defaults.withCredentials = true;
 
   const login = async (inputs: UserObj) => {
     const res = await axios.post(
