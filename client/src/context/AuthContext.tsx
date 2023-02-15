@@ -16,17 +16,17 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     JSON.parse(localStorage.getItem("key") as string) || null
   );
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
   const login = async (inputs: UserObj) => {
-    // const res = await axios.post(
-    //   `http://localhost:5000/api/auth/login`,
-    //   inputs
-    //   );
     const res = await axios.post(
-      `https://${process.env.REACT_APP_API_URL}/api/auth/login`,
+      `auth/login`,
       inputs
-    );
+      );
+    // const res = await axios.post(
+    //   `https://${process.env.REACT_APP_API_URL}/api/auth/login`,
+    //   inputs
+    // );
 
     setCurrentUser(res.data.username);
     setCurrentUserId(res.data.id);
@@ -38,10 +38,10 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     setCurrentUserId(null);
     localStorage.clear();
     sessionStorage.clear();
-    // await axios.post(`http://localhost:5000/api/auth/logout`);
-    await axios.post(
-      `https://${process.env.REACT_APP_API_URL}/api/auth/logout`
-    );
+    await axios.post(`auth/logout`);
+    // await axios.post(
+    //   `https://${process.env.REACT_APP_API_URL}/api/auth/logout`
+    // );
   };
 
   useEffect(() => {

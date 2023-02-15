@@ -54,12 +54,12 @@ const UpdateBook: React.FC = () => {
     book: DbBookInfo | undefined,
     bookId: string | undefined
   ) => {
-    // return axios.put(`http://localhost:5000/api/books/${bookId}`, book);
+    return axios.put(`books/${bookId}`, book);
 
-    return axios.put(
-      `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`,
-      book
-    );
+    // return axios.put(
+    //   `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`,
+    //   book
+    // );
   };
   const mutation = useMutation({
     mutationFn: ({

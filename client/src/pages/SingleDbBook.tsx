@@ -34,8 +34,8 @@ export default function SingleDbBook() {
   // handles the mutation to delete the book from the db
   const deleteBook = (bookId: string) => {
     return axios.delete(
-      // `http://localhost:5000/api/books/${bookId}`
-      `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`
+      `books/${bookId}`
+      // `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`
     );
   };
 

@@ -62,8 +62,8 @@ const AddBook: React.FC = () => {
   const addBook = async (book: DbBookInfo | undefined) => {
     return await axios
       .post(
-        // `http://localhost:5000/api/books/`,
-        `https://${process.env.REACT_APP_API_URL}/api/books/`,
+        `books/`,
+        // `https://${process.env.REACT_APP_API_URL}/api/books/`,
         book
       )
       .catch((err) => {
