@@ -53,18 +53,12 @@ export const login = async (req: Request, res: Response) => {
   const { password, ...other } = user[0]; // separating out password so that we are not sending it with the other information
 
   res
-    .cookie("access_token", token, { httpOnly: true }) // only for making API requests
+    .cookie("access_token", token, { maxAge: 86400000, httpOnly: true }) // httpOnly only for making API requests
     .status(200)
     .json(other);
 };
 
 export const logout = (req: Request, res: Response) => {
   // clearing cookie from local storage
-  res
-    .clearCookie("access_token", {
-      sameSite: "none",
-      secure: true,
-    })
-    .status(200)
-    .json("User has been logged out.");
+  res.clearCookie("access_token").status(200).json("User has been logged out.");
 };

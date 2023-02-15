@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AxiosError } from "axios";
-import { Axios } from "../config";
+import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMutation } from "react-query";
 import styled from "styled-components";
@@ -55,12 +55,12 @@ const UpdateBook: React.FC = () => {
     book: DbBookInfo | undefined,
     bookId: string | undefined
   ) => {
-    // return axios.put(`http://localhost:5000/api/books/${bookId}`, book);
+    return axios.put(`books/${bookId}`, book);
 
-    return Axios.put(
-      `/books/${bookId}`,
-      book
-    );
+    // return axios.put(
+    //   `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`,
+    //   book
+    // );
   };
   const mutation = useMutation({
     mutationFn: ({

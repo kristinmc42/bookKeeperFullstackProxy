@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AxiosError } from "axios";
-import { Axios } from "../config";
+import axios from "axios";
 import { useMutation, UseQueryResult } from "react-query";
 import styled from "styled-components";
 
@@ -61,10 +61,10 @@ const AddBook: React.FC = () => {
 
   // to ADD the book to the db
   const addBook = async (book: DbBookInfo | undefined) => {
-    return await Axios
+    return await axios
       .post(
-        // `http://localhost:5000/api/books/`,
-        `/books/`,
+        `books/`,
+        // `https://${process.env.REACT_APP_API_URL}/api/books/`,
         book
       )
       .catch((err) => {

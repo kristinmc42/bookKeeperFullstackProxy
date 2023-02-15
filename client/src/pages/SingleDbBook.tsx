@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { Axios } from "../config";
+import axios from "axios";
 import React, { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -34,9 +34,9 @@ export default function SingleDbBook() {
 
   // handles the mutation to delete the book from the db
   const deleteBook = (bookId: string) => {
-    return Axios.delete(
-      // `http://localhost:5000/api/books/${bookId}`
-      `/books/${bookId}`
+    return axios.delete(
+      `books/${bookId}`
+      // `https://${process.env.REACT_APP_API_URL}/api/books/${bookId}`
     );
   };
 
